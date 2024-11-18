@@ -1,0 +1,27 @@
+$background-color: White;
+
+body {
+    background-color: $background-color;
+}
+
+main#detail {
+    display: block;
+
+    .card {
+        max-width: 350px;
+        margin: auto;
+
+        &.no-blur * {
+            filter: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+
+
+

@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 25px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.card {
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    border-radius: 10px;
+    aspect-ratio: 1;
+    text-align: center;
+    padding: 45px;
+    position: relative;
+}
+
+.card * {
+    filter: blur(5px) grayscale(1);
+    transition: filter .5s linear;
+}
+
+.card:hover * {
+    filter: none;
+}
+
+.card a {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+

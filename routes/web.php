@@ -10,6 +10,8 @@ Route::get('/', function () {
     return view('welcome', ['pokemons' => $pokemoni]);
 });
 
-Route::get('/detail-pokemona', function() {
-    return view('detail');
+Route::get('/detail-pokemona/{id}', function(int $id) {
+    $poke = Pokemon::find($id);
+
+    return view('detail', ['pokemon' => $poke]);
 })->name("detail");
