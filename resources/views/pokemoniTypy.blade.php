@@ -21,21 +21,22 @@
 
     </head>
     <body>
-        <main id="detail">
-            <div class="card no-blur">
-                <h2>{{ $pokemon->nazev }}</h2>
-                <img
-                    src="{{ asset('images/' . $pokemon->url_obrazku) }}"
-                    alt="{{ $pokemon->nazev }}"
-                >
-                <div class="types">
-                    <a href="{{ route('typy', ["typ" => $pokemon->typ->id ]) }}">
-                    <span style="background: {{ $pokemon->typ->barva }}">
-                        {{ $pokemon->typ->nazev }}
-                    </span>
+        <main>
+            @if(count($pokemons) > 0)
+                @foreach ($pokemons as $poke)
+                <div class="card">
+                    <img
+                        src="{{ asset('images/' . $poke->url_obrazku) }}"
+                        alt="{{ $poke->nazev }}"
+                    >
+                    <a href="{{ route("detail", ["id" => $poke->id]) }}">
+                        <i class="fa-brands fa-searchengin"></i>
                     </a>
                 </div>
-            </div>
+                @endforeach
+            @else
+                <p>Nebyly nalezeny pokemoni typu {{ $typ }}.</p>
+            @endif
         </main>
     </body>
 </html>
