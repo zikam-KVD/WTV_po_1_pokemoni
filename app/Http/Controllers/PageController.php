@@ -43,4 +43,19 @@ class PageController extends Controller
 
         return view('pokemoniTypy', ['pokemons' => $typ->pokemon]);
     }
+
+    public function jaNevimTreba(Request $request)
+    {
+        $zkontrolovano = $request->validate([
+            'typ-nazev' => 'required|unique:types,nazev|min:5|max:64',
+            'typ-color' => 'required|unique:types,barva|hex_color',
+        ]);
+
+        Typ::insert([
+            "nazev" => $request['typ-nazev'],
+            "barva" => $zkontrolovano['typ-color'],
+        ]);
+
+        return back()->with("message", "Typ " . $request['typ-nazev'] . " byl přidán.");
+    }
 }

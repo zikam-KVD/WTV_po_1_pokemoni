@@ -15,7 +15,6 @@ img {
     max-width: 100%;
 }
 
-
 .nav--inner {
     max-width: 1200px;
     margin: auto;
@@ -45,5 +44,10 @@ img {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+/* css pro typy */
+#pokemoni-typy {
+    width: 100%;
 }
 

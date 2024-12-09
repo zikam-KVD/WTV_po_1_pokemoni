@@ -33,4 +33,9 @@ Route::middleware([
         return view('pokemoni-typy', ["typy" => $typy]);
     })->name('pokemoni-typy');
 
+    Route::post(
+        '/pridani-barvy',
+        [PageController::class, 'jaNevimTreba'
+    ])->name('pridaniTypu');
+
 });
