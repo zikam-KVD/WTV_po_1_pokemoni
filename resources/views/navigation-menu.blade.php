@@ -15,6 +15,9 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('pokemoni-typy') }}" :active="request()->routeIs('dashboard')">
+                        Typy
+                    </x-nav-link>
                 </div>
             </div>
 

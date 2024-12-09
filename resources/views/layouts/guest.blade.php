@@ -23,7 +23,13 @@
         @livewireStyles
     </head>
     <body>
-        @include('layouts/includes/nav')
+
+        @guest
+            @include('layouts/includes/nav')
+        @else
+            @include('navigation-menu')
+        @endguest
+
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
