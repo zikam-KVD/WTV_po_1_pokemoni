@@ -1,12 +1,8 @@
 <x-app-layout>
 
     <section class="bg-white w-full">
-        @if($errors->any())
-            <ul>
-            @foreach ($erros as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-            </ul>
+        @if(Session::has("message"))
+            <p>{{ Session::get("message") }}</p>
         @endif
         <form action="{{ route('pridaniTypu') }}" method="POST">
             @csrf
@@ -43,7 +39,15 @@
                     {{ $typ->barva }}
                 </td>
                 <td>{{ count($typ->pokemon) }}</td>
-                <td></td>
+                <td>
+                    <form
+                        action="{{ route('admin.smazTyp', ['id' => $typ->id]) }}"
+                        method="post"
+                    >
+                        @csrf
+                        <x-button>Smaž</x-button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </table>

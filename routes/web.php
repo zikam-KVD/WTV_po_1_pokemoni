@@ -33,9 +33,28 @@ Route::middleware([
         return view('pokemoni-typy', ["typy" => $typy]);
     })->name('pokemoni-typy');
 
+    //postova routa na pridani typu
     Route::post(
         '/pridani-barvy',
         [PageController::class, 'jaNevimTreba'
     ])->name('pridaniTypu');
+
+    //Smazani typu, {id} udava, ze to bude chtit ID typu na smazani
+    Route::post(
+        '/smazani-typu/{id}',
+        [PageController::class, 'smazaniTypu']
+    )->name('admin.smazTyp');
+
+    //jen zobrazuje view pro pridani pokemona (proto get)
+    Route::get(
+        '/pokemoni-pokemoni',
+        [PageController::class, 'adminPokemoni']
+    )->name('admin.pokemoni');
+
+    //postova routa na pridavani pokemona
+    Route::post(
+        '/pridani-pokemona',
+        [PageController::class, 'pridatPokemona'
+    ])->name('admin.pridatPokemona');
 
 });

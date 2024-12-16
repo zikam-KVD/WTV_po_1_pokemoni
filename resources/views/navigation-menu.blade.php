@@ -15,8 +15,11 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('pokemoni-typy') }}" :active="request()->routeIs('dashboard')">
+                    <x-nav-link href="{{ route('pokemoni-typy') }}" :active="request()->routeIs('pokemoni-typy')">
                         Typy
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('admin.pokemoni') }}" :active="request()->routeIs('admin.pokemoni')">
+                        Pokemoni
                     </x-nav-link>
                 </div>
             </div>
